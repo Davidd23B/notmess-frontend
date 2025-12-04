@@ -123,8 +123,6 @@ class _ProductosScreenState extends State<ProductosScreen> {
     final theme = Theme.of(context);
     final authViewModel = Provider.of<AuthViewModel>(context, listen: false);
     final isAdmin = authViewModel.currentUser?.isAdmin ?? false;
-    
-    // Capturar ProductoViewModel ANTES de abrir el modal
     final productoViewModel = Provider.of<ProductoViewModel>(context, listen: false);
 
     showModalBottomSheet(
