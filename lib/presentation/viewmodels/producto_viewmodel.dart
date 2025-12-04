@@ -32,6 +32,7 @@ class ProductoViewModel extends ChangeNotifier {
       }
       _aplicarFiltros();
     } catch (e) {
+      // No hacer nada.
     } finally {
       _isLoading = false;
       notifyListeners();
