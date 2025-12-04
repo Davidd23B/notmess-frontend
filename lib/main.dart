@@ -68,7 +68,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   void initState() {
     super.initState();
     
-    // Configurar animaciones
     _animationController = AnimationController(
       duration: const Duration(milliseconds: 1500),
       vsync: this,
@@ -99,7 +98,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
   }
 
   Future<void> _checkAuthentication() async {
-    // Esperar mínimo 2 segundos para mostrar el splash
     await Future.delayed(const Duration(milliseconds: 2000));
     
     if (!mounted) return;
@@ -135,7 +133,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Logo container con sombra
                     Container(
                       width: 120,
                       height: 120,
@@ -158,7 +155,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     ),
                     const SizedBox(height: 30),
                     
-                    // Nombre de la app
                     Text(
                       'NotMess',
                       style: Theme.of(context).textTheme.displayMedium?.copyWith(
@@ -169,7 +165,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     ),
                     const SizedBox(height: 8),
                     
-                    // Subtítulo
                     Text(
                       'Gestión de Inventario',
                       style: Theme.of(context).textTheme.bodyLarge?.copyWith(
@@ -179,7 +174,6 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                     ),
                     const SizedBox(height: 50),
                     
-                    // Indicador de carga
                     SizedBox(
                       width: 40,
                       height: 40,
