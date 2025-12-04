@@ -1,5 +1,5 @@
 name: notmess_frontend
-description: "A new Flutter project."
+description: "NotMess - Sistema de gestión de inventario y control de calidad"
 publish_to: 'none'
 version: 0.1.0
 
@@ -9,11 +9,50 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # HTTP & API
+  http: ^1.2.0
+  http_parser: ^4.0.2
+  
+  # Local Storage
+  shared_preferences: ^2.2.2
+  
+  # Image Handling
+  image_picker: ^1.0.7
+  file_picker: ^8.0.0+1
+  mime: ^1.0.5
+  
+  # File System
+  path_provider: ^2.1.1
+  permission_handler: ^11.0.1
+  
+  # Utils
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.4.7
 
 flutter:
   uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/icons/
+
+# Configuración del ícono de la app
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icons/app_icon.png"
+  adaptive_icon_background: "#FF6B35"
+  adaptive_icon_foreground: "assets/icons/app_icon_foreground.png"
+  min_sdk_android: 21
