@@ -124,6 +124,7 @@ class _ProductosScreenState extends State<ProductosScreen> {
     final authViewModel = Provider.of<AuthViewModel>(context, listen: false);
     final isAdmin = authViewModel.currentUser?.isAdmin ?? false;
     final productoViewModel = Provider.of<ProductoViewModel>(context, listen: false);
+    final mainContext = context;
 
     showModalBottomSheet(
       context: context,
@@ -252,7 +253,7 @@ class _ProductosScreenState extends State<ProductosScreen> {
                               onPressed: () async {
                                 Navigator.pop(context);
                                 final result = await Navigator.push(
-                                  context,
+                                  mainContext,
                                   MaterialPageRoute(
                                     builder: (_) =>
                                         ProductoFormScreen(producto: producto),
@@ -276,10 +277,10 @@ class _ProductosScreenState extends State<ProductosScreen> {
                                 Navigator.of(context).pop();
                                 await Future.delayed(const Duration(milliseconds: 200));
                                 
-                                if (!context.mounted) return;
+                                if (!mainContext.mounted) return;
                                 
                                 final confirm = await showDialog<bool>(
-                                  context: context,
+                                  context: mainContext,
                                   barrierDismissible: false,
                                   builder: (dialogContext) => AlertDialog(
                                     title: const Text('Confirmar eliminación'),
@@ -304,10 +305,10 @@ class _ProductosScreenState extends State<ProductosScreen> {
                                 
                                 final resultado = await productoViewModel.deleteProducto(id);
                                 
-                                if (!context.mounted) return;
+                                if (!mainContext.mounted) return;
                                 
                                 if (!resultado) {
-                                  ErrorDialog.show(context);
+                                  ErrorDialog.show(mainContext);
                                 }
                               },
                               icon: const Icon(Icons.delete_outline),
