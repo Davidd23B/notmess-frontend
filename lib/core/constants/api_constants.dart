@@ -6,6 +6,7 @@ class ApiConstants {
   // Para producción:
   static const String baseUrl = 'http://davidb.es:8080';
   
+  
   static const String login = '$baseUrl/auth/login';
   static const String logout = '$baseUrl/auth/logout';
   static const String verifyToken = '$baseUrl/auth/verify-token';
