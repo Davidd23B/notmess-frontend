@@ -813,7 +813,7 @@ class _ProductosScreenState extends State<ProductosScreen> {
                                     _showProductoDetail(producto);
                                   }
                                 },
-                                onLongPress: !_modoSeleccion
+                                onLongPress: !_modoSeleccion && authViewModel.isAdmin
                                     ? () {
                                         _toggleModoSeleccion();
                                         _toggleSeleccionProducto(producto.id);

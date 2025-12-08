@@ -411,9 +411,10 @@ class _MultiProductDialogState extends State<_MultiProductDialog> {
                           (_searchQuery.isEmpty || p.nombre.toLowerCase().contains(_searchQuery)))
                       .toList();
 
-                  // Si no hay cantidades, mostrar todos. Si hay, solo los seleccionados
                   final productosAMostrar = _mostrandoCantidades 
-                      ? _productosSeleccionados
+                      ? _productosSeleccionados.where((p) =>
+                          _searchQuery.isEmpty || p.nombre.toLowerCase().contains(_searchQuery)
+                        ).toList()
                       : productosFiltrados;
 
                   return ListView.builder(
