@@ -183,6 +183,7 @@ class _UsuariosScreenState extends State<UsuariosScreen> {
                   FilterChip(
                     label: const Text('Todos'),
                     selected: _filtroRol == null,
+                    showCheckmark: false,
                     onSelected: (selected) {
                       setState(() {
                         _filtroRol = null;
@@ -200,6 +201,7 @@ class _UsuariosScreenState extends State<UsuariosScreen> {
                   FilterChip(
                     label: const Text('Administradores'),
                     selected: _filtroRol == 'admin',
+                    showCheckmark: false,
                     onSelected: (selected) {
                       setState(() {
                         _filtroRol = selected ? 'admin' : null;
@@ -217,6 +219,7 @@ class _UsuariosScreenState extends State<UsuariosScreen> {
                   FilterChip(
                     label: const Text('Usuarios'),
                     selected: _filtroRol == 'usuario',
+                    showCheckmark: false,
                     onSelected: (selected) {
                       setState(() {
                         _filtroRol = selected ? 'usuario' : null;
@@ -242,6 +245,7 @@ class _UsuariosScreenState extends State<UsuariosScreen> {
                   FilterChip(
                     label: const Text('Todos'),
                     selected: _filtroEstado == null,
+                    showCheckmark: false,
                     onSelected: (selected) {
                       setState(() {
                         _filtroEstado = null;
@@ -259,6 +263,7 @@ class _UsuariosScreenState extends State<UsuariosScreen> {
                   FilterChip(
                     label: const Text('Activos'),
                     selected: _filtroEstado == 'activo',
+                    showCheckmark: false,
                     onSelected: (selected) {
                       setState(() {
                         _filtroEstado = selected ? 'activo' : null;
@@ -276,6 +281,7 @@ class _UsuariosScreenState extends State<UsuariosScreen> {
                   FilterChip(
                     label: const Text('Inactivos'),
                     selected: _filtroEstado == 'inactivo',
+                    showCheckmark: false,
                     onSelected: (selected) {
                       setState(() {
                         _filtroEstado = selected ? 'inactivo' : null;

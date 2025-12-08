@@ -217,6 +217,7 @@ class _AppccScreenState extends State<AppccScreen> {
                           FilterChip(
                             label: const Text('Todos'),
                             selected: turnoTemp == null,
+                            showCheckmark: false,
                             onSelected: (_) {
                               setModalState(() => turnoTemp = null);
                               appccViewModel.filtrarPorTurno(null);
@@ -235,6 +236,7 @@ class _AppccScreenState extends State<AppccScreen> {
                               size: 18,
                             ),
                             selected: turnoTemp == 'mañana',
+                            showCheckmark: false,
                             onSelected: (_) {
                               setModalState(() => turnoTemp = 'mañana');
                               appccViewModel.filtrarPorTurno('mañana');
@@ -257,6 +259,7 @@ class _AppccScreenState extends State<AppccScreen> {
                               size: 18,
                             ),
                             selected: turnoTemp == 'tarde',
+                            showCheckmark: false,
                             onSelected: (_) {
                               setModalState(() => turnoTemp = 'tarde');
                               appccViewModel.filtrarPorTurno('tarde');

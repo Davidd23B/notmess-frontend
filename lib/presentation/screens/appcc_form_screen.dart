@@ -378,35 +378,48 @@ class _AppccFormScreenState extends State<AppccFormScreen> {
                 final isActive = index == _currentStep;
                 final isCompleted = index < _currentStep;
                 
+                final stepIcons = [
+                  Icons.info_outlined,
+                  Icons.cleaning_services_outlined,
+                  Icons.thermostat_outlined,
+                  Icons.inventory_2_outlined,
+                  Icons.restaurant_outlined,
+                ];
+                
                 return Row(
                   children: [
-                    Container(
-                      width: 32,
-                      height: 32,
-                      decoration: BoxDecoration(
-                        color: isCompleted
-                            ? theme.colorScheme.primary
-                            : isActive
-                                ? theme.colorScheme.primaryContainer
-                                : theme.colorScheme.surfaceContainerHigh,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Center(
-                        child: isCompleted
-                            ? Icon(
-                                Icons.check,
-                                color: theme.colorScheme.onPrimary,
-                                size: 18,
-                              )
-                            : Text(
-                                '${index + 1}',
-                                style: TextStyle(
-                                  color: isActive
-                                      ? theme.colorScheme.onPrimaryContainer
-                                      : theme.colorScheme.onSurfaceVariant,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
+                    InkWell(
+                      onTap: () {
+                        setState(() => _currentStep = index);
+                        _pageController.animateToPage(
+                          index,
+                          duration: const Duration(milliseconds: 300),
+                          curve: Curves.easeInOut,
+                        );
+                      },
+                      borderRadius: BorderRadius.circular(16),
+                      child: Container(
+                        width: 32,
+                        height: 32,
+                        decoration: BoxDecoration(
+                          color: isCompleted
+                              ? theme.colorScheme.primary
+                              : isActive
+                                  ? theme.colorScheme.primaryContainer
+                                  : theme.colorScheme.surfaceContainerHigh,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Center(
+                          child: Icon(
+                            stepIcons[index],
+                            color: isCompleted
+                                ? theme.colorScheme.onPrimary
+                                : isActive
+                                    ? theme.colorScheme.onPrimaryContainer
+                                    : theme.colorScheme.onSurfaceVariant,
+                            size: 18,
+                          ),
+                        ),
                       ),
                     ),
                     if (index < 4)
@@ -464,7 +477,6 @@ class _AppccFormScreenState extends State<AppccFormScreen> {
                   ),
                 if (_currentStep > 0) const SizedBox(width: 16),
                 Expanded(
-                  flex: 2,
                   child: _currentStep == 4
                       ? FilledButton.icon(
                           onPressed: _guardarAppcc,

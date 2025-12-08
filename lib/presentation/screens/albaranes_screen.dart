@@ -199,6 +199,7 @@ class _AlbaranesScreenState extends State<AlbaranesScreen> {
                           FilterChip(
                             label: const Text('Todos'),
                             selected: tipoTemp == null,
+                            showCheckmark: false,
                             onSelected: (_) {
                               setModalState(() => tipoTemp = null);
                               albaranViewModel.setTipoFiltro(null);
@@ -214,6 +215,7 @@ class _AlbaranesScreenState extends State<AlbaranesScreen> {
                             label: const Text('Entradas'),
                             avatar: const Icon(Icons.arrow_downward, size: 18),
                             selected: tipoTemp == 'entrada',
+                            showCheckmark: false,
                             onSelected: (_) {
                               setModalState(() => tipoTemp = 'entrada');
                               albaranViewModel.setTipoFiltro('entrada');
@@ -233,6 +235,7 @@ class _AlbaranesScreenState extends State<AlbaranesScreen> {
                             label: const Text('Salidas'),
                             avatar: const Icon(Icons.arrow_upward, size: 18),
                             selected: tipoTemp == 'salida',
+                            showCheckmark: false,
                             onSelected: (_) {
                               setModalState(() => tipoTemp = 'salida');
                               albaranViewModel.setTipoFiltro('salida');
@@ -253,6 +256,7 @@ class _AlbaranesScreenState extends State<AlbaranesScreen> {
                               size: 18,
                             ),
                             selected: tipoTemp == 'merma',
+                            showCheckmark: false,
                             onSelected: (_) {
                               setModalState(() => tipoTemp = 'merma');
                               albaranViewModel.setTipoFiltro('merma');
